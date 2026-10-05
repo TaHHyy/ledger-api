@@ -37,7 +37,7 @@ FastAPI + SQLAlchemy + Supabase(PostgreSQL)로 만든 가계부 API.
 2. **SQLAlchemy 모델 클래스와 실제 테이블의 대응**: 클래스(`Account`)는 테이블(`accounts`), 클래스 속성(`mapped_column`)은 컬럼, 객체 하나는 행 한 줄에 대응한다. `Base.metadata.create_all`이 클래스 정의를 읽어 `CREATE TABLE`을 실행하므로, SQL을 직접 쓰지 않고 파이썬 객체로 DB를 다룰 수 있다.
 3. **접속 문자열을 `.env`로 분리하는 이유**: 접속 문자열에 DB 비밀번호가 들어 있어 코드에 쓰면 GitHub에 그대로 노출된다. 그래서 `.env`에 두고 `.gitignore`로 제외하며, 코드는 `os.getenv("DATABASE_URL")`로만 읽는다. 배포 서버에는 `.env`가 없으므로 Render 환경변수로 같은 이름의 값을 넣으면, 코드를 바꾸지 않고 환경마다 다른 값을 쓸 수 있다.
 
-## ③ 자유 로그 (2026-10-05)
+## ③ 자유 로그 (2026-10-05 수행)
 
 오늘 한 일: FastAPI + SQLAlchemy로 가계부 API를 만들고, 데이터를 Supabase(PostgreSQL)에 연결한 뒤, GitHub에 올려 Render로 배포했다.
 
@@ -56,4 +56,4 @@ ORM과 DB/DBMS의 차이, SQLite(학습용)와 PostgreSQL(서버형) 차이, 외
 
 ### AI 사용
 
-기본적인 실습은 '실습워크북'을 따라하며 직접 수행했다. 개념이 막히거나 오류가 났을 때 AI에게 질문해 원인과 개념을 확인했다.
+기본적인 실습은 '실습워크북'을 따라하며 직접 수행했다. 개념이 막히거나 오류가 났을 때 AI에게 질문해 원인과 개념을 확인했고, 그 내용은 실제 실행 로그와 Supabase Table Editor, Render `/docs` 응답으로 직접 확인해 검증했다.
