@@ -26,6 +26,10 @@ FastAPI + SQLAlchemy + Supabase(PostgreSQL)로 만든 가계부 API.
 
 ![accounts](images/accounts_table.png)
 
+**Supabase Table Editor - categories** (샘플 데이터: 식비·교통 카테고리)
+
+![categories](images/categories_table.png)
+
 ## ② 핵심 개념 되새김
 
 1. **계좌와 거래를 두 테이블로 나눈 이유 (1:N)**: 한 계좌에는 거래가 여러 건 생긴다. 한 표에 합치면 계좌 이름이 거래마다 반복되어 수정이 어렵다. 그래서 `accounts`(1)와 `transactions`(N)로 나누고, 거래가 `account_id`로 계좌의 `id`를 가리키게(외래키) 했다. DB가 존재하지 않는 계좌를 가리키는 거래를 거부해 데이터 일관성도 지켜진다.
