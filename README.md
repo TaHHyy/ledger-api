@@ -1,7 +1,8 @@
-# ledger-api
-
 - GitHub: https://github.com/TaHHyy/ledger-api
 - Render: https://ledger-api-yhh3.onrender.com
+
+
+# ledger-api
 
 FastAPI + SQLAlchemy + Supabase(PostgreSQL)로 만든 가계부 API. 
 계좌·거래·카테고리 CRUD, 계좌별 거래 중첩 조회, 카테고리별 지출 통계를 제공한다.
@@ -45,13 +46,13 @@ FastAPI + SQLAlchemy + Supabase(PostgreSQL)로 만든 가계부 API.
 | 막힌 곳 | 원인 | 푼 방법 |
 |---|---|---|
 | Supabase 프로젝트 생성 불가 | 무료 프로젝트 개수 한도 | 예전 조직·프로젝트를 삭제하고 `mytest_1` 새로 생성 |
-| **`.env`, `.gitignore`가 안 먹음 (가장 오래 헤맴)** | VS Code 탐색기가 폴더를 합쳐 보여주는 기능(Compact Folders) 때문에 파일이 `ledger-api`가 아니라 **`.venv` 폴더 안**에 만들어짐 | `dir /a .venv`로 발견 후 `move .venv\.env .env`로 이동하고, `ledger-api` 바로 아래에 `.gitignore`, `requirements.txt` 새로 작성 (`.venv` 안의 `.gitignore`는 venv가 자동 생성한 것이라 그대로 둠) |
+| **`.env`, `.gitignore` 파일 생성 위치 못찾음 (가장 오래 헤맴)** | VS Code 탐색기가 폴더를 합쳐 보여주는 기능(Compact Folders) 때문에 파일이 `ledger-api`가 아니라 **`.venv` 폴더 안**에 만들어짐 | `dir /a .venv`로 발견 후 `move .venv\.env .env`로 이동하고, `ledger-api` 바로 아래에 `.gitignore`, `requirements.txt` 새로 작성 (`.venv` 안의 `.gitignore`는 venv가 자동 생성한 것이라 그대로 둠) |
 | `ImportError: DLL load failed while importing _psycopg` | Windows 스마트 앱 컨트롤이 `psycopg-binary 3.3.x`의 DLL을 차단 | `pip install "psycopg[binary]<3.3"`으로 버전을 낮춰 해결 |
 | POST를 두 번 눌러 거래가 중복 생성됨 | 같은 요청을 다시 실행 | 중복 행 삭제. 이후 새로 넣으니 id가 4로 이어짐 → DB의 id 번호는 삭제해도 재사용되지 않음을 확인 |
 
 ### 개념을 확인하며 정리한 것
 
-ORM과 DB/DBMS의 차이, SQLite(학습용)와 PostgreSQL(서버형) 차이, 외래키, HTTP의 GET/POST와 SQL의 SELECT/INSERT의 대응, 환경변수와 `.env`, venv를 쓰는 이유, `requirements.txt`의 역할. 교재 CHECK 4의 "GET이 ... 거기서 만든 계좌가 Table Editor에 보인다"는 문장이 모호하다고 느껴 짚어 보았고, "`/docs`에서 POST로 만든 계좌"의 뜻으로 정리했다.
+ORM과 DB/DBMS의 차이, SQLite(학습용)와 PostgreSQL(서버형) 차이, 외래키, HTTP의 GET/POST와 SQL의 SELECT/INSERT의 대응, 환경변수와 `.env`, venv를 쓰는 이유, `requirements.txt`의 역할 등에 대해 다시 한번 확인하며 개념을 체득했다.
 
 ### AI 사용
 
